@@ -1,21 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-function Header(props) {
+function Header({ text }) {
   return (
     <header>
         <div className='container'>
-            <h2>{props.text }</h2>
+            <h2>{ text }</h2>
         </div>
     </header>
-  )//you can diusd
+  )//you can pass a prop into each component
 }
 
 Header.defaultProps = {
     text: "Feedback UI",
 }//set default prop
 
-Header.PropTypes = {
+Header.propTypes = {
     text: PropTypes.string,
 }//set prop type
 
