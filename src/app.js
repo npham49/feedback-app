@@ -6,6 +6,9 @@ import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData)
+    const addFeedback = (newFeedback) => {
+        console.log(newFeedback)
+    }
     const deleteFeedback = (id) => {
         if (window.confirm('Are you sure?')) {
             setFeedback(feedback.filter((item) => item.id !==id)) //basically ther filter takes the array, assign them as item then delete the non compliance to the condition
@@ -16,7 +19,7 @@ function App() {
             <Header text="Hello World"/>   {/*you can pass props into a component*/}
             
             <div className='container'>
-                <FeedbackForm />
+                <FeedbackForm handleAdd= {addFeedback}/>
                 <FeedbackStats feedback ={feedback}/>
                 <FeedbackList feedback={feedback}
                 handleDelete={deleteFeedback}/>
