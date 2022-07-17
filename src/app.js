@@ -1,13 +1,17 @@
+import {v4 as uuidv4} from 'uuid'
 import {useState} from 'react'
 import Header from './components/Header'
 import FeedbackData from './data/FeedbackData'
 import FeedbackList from './components/FeedbackList'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
+
+
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData)
     const addFeedback = (newFeedback) => {
-        console.log(newFeedback)
+        newFeedback.id = uuidv4()
+        setFeedback([newFeedback, ...feedback]) //This is a very interesting way to add everything already in the list into the new copy
     }
     const deleteFeedback = (id) => {
         if (window.confirm('Are you sure?')) {
