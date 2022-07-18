@@ -1,16 +1,28 @@
 import React from 'react'
 import { useState } from 'react'
+import { useContext,useEffect } from 'react'
 import Card from './share/Card'
 import Button from './share/Button'
 import RatingSelect from './RatingSelect'
+import FeedbackContext from '../context/FeedbackContext'
 
 
-function FeedbackForm({handleAdd}) {
+function FeedbackForm() {
     const [text,setText] = useState('')
     const [rating,setRating] = useState(10)
     const [btnDisabled,setBtnDisabled] = useState(true)
     const [message, setMessage] = useState('')
 
+
+    const {addFeedback,feedbackEdit} = useContext(FeedbackContext)
+
+    useEffect(()=> {
+        if (feedbackEdit.edit===true) {
+            setBtnDisabled(false)
+            setText(feedbackEdit.item.text)
+            setRating(feedbackEdit.item.rating)
+        }
+    },[feedbackEdit])
     //if consition to check if the text isn currently above 10 characters to activate the button
     const handleTextChange = (e) =>{
         if(text === '') {
@@ -33,7 +45,7 @@ function FeedbackForm({handleAdd}) {
                 text,
                 rating,
             }
-            handleAdd(newFeedback)
+            addFeedback(newFeedback)
 
 
             setText('')
