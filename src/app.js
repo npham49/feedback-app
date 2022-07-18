@@ -7,7 +7,7 @@ import FeedbackList from './components/FeedbackList'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
 import AboutPage from './pages/AboutPage'
-
+import AboutIconLink from './components/AboutIconLink'
 
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData)
@@ -22,10 +22,10 @@ function App() {
     } // This function is being pass from Item level all the way up here
     return (
         <Router>
-            <Header text="Hello World"/>   {/*you can pass props into a component*/}
+            <Header text="FeedBackApp"/>   {/*you can pass props into a component*/}
             
             <div className='container'>
-                <Routes>
+                <Routes> {/* With version 6 of react-router-dom all <Route> have to be in <Routes>*/}
                     <Route exact path='/' element={
                         <>
                         <FeedbackForm handleAdd= {addFeedback}/>
@@ -36,7 +36,8 @@ function App() {
                     }/>
 
                     <Route path='/about' element={<AboutPage/>} />
-                </Routes>            
+                </Routes>
+                <AboutIconLink/>            
             </div>
         </Router>
     ) //JSX Component must be in 1 main parent component
