@@ -37,7 +37,7 @@ export const FeedbackProvider = ({children}) => {
         setFeedback([newFeedback, ...feedback]) //This is a very interesting way to add everything already in the list into the new copy
     }
     const updateFeedback = (id, updItem) => {
-        setFeedback(feedback.map((item)=> (item.id === id? {... item, ...updItem} : item)))
+        setFeedback(feedback.map((item)=> (item.id === id? {...item, ...updItem} : item)))
     }
 
     const deleteFeedback = (id) => {
