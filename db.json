@@ -1,0 +1,19 @@
+{
+    "feedback": [
+        {
+            "id" : 1,
+            "rating" : 10,
+            "text" : "This is a feedback db 1 test"
+        },
+        {
+            "id" : 2,
+            "rating" : 8,
+            "text" : "This is a feedback db 2 test"
+        },
+        {
+            "id" : 3,
+            "rating" : 6,
+            "text" : "This is a feedback db 3 test"
+        }
+    ]
+}
