@@ -20,7 +20,7 @@ export const FeedbackProvider = ({children}) => {
     }, [])
 
     const fetchFeedback = async() => {
-        const response = await fetch('/feedback?_sort=id&_order=desc')
+        const response = await fetch('https://np-feedback-app-db.herokuapp.com/feedback?_sort=id&_order=desc')
         const data = await response.json()
 
         setFeedback(data)
@@ -28,7 +28,7 @@ export const FeedbackProvider = ({children}) => {
     }
 
     const addFeedback = async (newFeedback) => {
-        const response = await fetch('/feedback', {
+        const response = await fetch('https://np-feedback-app-db.herokuapp.com/feedback', {
             method:'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -42,7 +42,7 @@ export const FeedbackProvider = ({children}) => {
         setFeedback([data, ...feedback]) //This is a very interesting way to add everything already in the list into the new copy
     }
     const updateFeedback = async (id, updItem) => {
-        const response = await fetch(`/feedback/${id}`, {
+        const response = await fetch(`https://np-feedback-app-db.herokuapp.com/feedback/${id}`, {
             method:'PUT',
             headers: {
                 'Content-Type':'application/json',
@@ -56,7 +56,7 @@ export const FeedbackProvider = ({children}) => {
 
     const deleteFeedback = async (id) => {
         if (window.confirm('Are you sure?')) {
-            await fetch(`/feedback/${id}`, {method:'DELETE'})
+            await fetch(`https://np-feedback-app-db.herokuapp.com/feedback/${id}`, {method:'DELETE'})
 
             setFeedback(feedback.filter((item) => item.id !==id)) //basically ther filter takes the array, assign them as item then delete the non compliance to the condition
         }
