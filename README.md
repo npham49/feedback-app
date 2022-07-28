@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Intruduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is created as part of React Front to Back , [course link](https://www.udemy.com/course/react-front-to-back-2022/)
+An feedback leaving application that utilize a mock back-end using JSON-server to save feedbacks (text, rating number) into a mock JSON server deployed to heroku.
+
+# High Level Overview
+
+The project's front-end is built using ReactJS, but a mock back-end is deployed to Heroku for CRUD operations.
+The entireproject is deployed to netlify. [Demo](https://mellifluous-twilight-447ad3.netlify.app/)
+
+# Intructions
+
+As a normal ReactJS application, I have included all scripts in the bottom from thew original ReactJS Readme, there are some scripts for debugging I have also included.
+
+### `npm run dev`
+
+Runs the JSON-server locally at port 3001 and the application concurrently
+
 
 ## Available Scripts
 
